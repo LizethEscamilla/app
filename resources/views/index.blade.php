@@ -17,5 +17,11 @@
             </div>
         </div>
     @endforeach
-</div>  
+     <!-- Botón para generar el PDF -->
+    <div class="col-12 text-center my-4">
+        <form action="{{ route('generate-pdf') }}" method="get">
+            <button type="submit" class="btn btn-danger">Generar PDF</button>
+        </form>
+    </div>
+</div>
 @endsection

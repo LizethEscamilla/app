@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Trainer;
 use Illuminate\Support\Facades\File;
-
+use PDF;
 
 
 class TrainerController extends Controller
@@ -126,4 +126,18 @@ class TrainerController extends Controller
             return 'El '.$id. "No se pudo borrar";
         
         }
-}
+        public function generatePDF()
+        {
+            $trainers = Trainer::get();
+
+        
+            $data = [
+                'date' => date('d/m/Y'),
+                'trainers' => $trainers 
+            ]; 
+                  
+            $pdf = PDF::loadView('myPDF', $data);
+               
+            return $pdf->download('listado.pdf');
+        }
+}        

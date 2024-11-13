@@ -29,7 +29,6 @@ Route::get('/name/{name}/lastname/{apellido?}', function ($name,$apellido='apell
     return 'Hola soy '.$name.' '.$apellido;
 });
 
-
 Route::get('/1er/{num}/2do/{num2}',
 function ($num, $num2) {
     $resultado = $num + $num2;
@@ -92,5 +91,11 @@ Auth::routes();
 Route::get('delete/{id}', [TrainerController::class,'destroy']);
 
 Route::put('/trainers/{id}', [TrainerController::class, 'update']);
+
+Route::get('generate-pdf', [TrainerController::class, 'generatePDF'])->name('generate-pdf');
+
+
+
+
 
 
