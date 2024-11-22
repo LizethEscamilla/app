@@ -134,8 +134,9 @@ class TrainerController extends Controller
             $data = [
                 'date' => date('d/m/Y'),
                 'trainers' => $trainers 
-            ]; 
-                  
+            ];
+            
+                
             $pdf = PDF::loadView('myPDF', $data);
                
             return $pdf->download('listado.pdf');

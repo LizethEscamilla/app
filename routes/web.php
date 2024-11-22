@@ -4,6 +4,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\TrainerController;
 use Illuminate\Support\Facades\Route;
+//use App\Http\Controllers\SearchController;
+use App\Http\Controllers\Api\SearchController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -94,8 +96,13 @@ Route::put('/trainers/{id}', [TrainerController::class, 'update']);
 
 Route::get('generate-pdf', [TrainerController::class, 'generatePDF'])->name('generate-pdf');
 
+// Ruta para la búsqueda
+Route::get('api/search', [SearchController::class, 'search']);
 
 
+
+
+Route::get('/', [SearchController::class, 'search'])->name('trainers.search');
 
 
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Laravel 11 Generate PDF Example - ItSolutionStuff.com</title>
+    <title>Laravel 11 Generate PDF Example</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
@@ -22,7 +22,14 @@
             <td>{{ $trainer->id }}</td>
             <td>{{ $trainer->name }}</td>
             <td>{{ $trainer->apellido }}</td>
-            <td class='text-right'>{{ $trainer->avatar }}</td>
+            <td>
+                <!-- Usa una de estas dos opciones según tu necesidad -->
+                <!-- Opción 1: Rutas locales absolutas -->
+                <img src="{{ public_path('images/' . $trainer->avatar) }}" alt="Avatar" style="width:50px; height:50px;">
+
+                <!-- Opción 2: Rutas públicas accesibles por URL -->
+                <!-- <img src="{{ asset('images/' . $trainer->avatar) }}" alt="Avatar" style="width:50px; height:50px;"> -->
+            </td>
         </tr>
         @endforeach
     </table>
